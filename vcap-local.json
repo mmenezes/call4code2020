@@ -4,7 +4,7 @@
             "name": "newnormal",
             "instance_name": "newnormal",
             "binding_name": null,
-			{
+			"credentials": {
               "apikey": "b9rwK-3ADtMxS-2DUbtupJWOGCC5X0FP0nC8PeE8fDvm",
               "host": "5e4f7796-801b-4c5c-8eec-d64d8cd01174-bluemix.cloudant.com",
               "iam_apikey_description": "Auto generated apikey during resource-key operation for Instance - crn:v1:bluemix:public:cloudantnosqldb:eu-gb:a/c2baa20aeedd78f82f04763d9e950327:3b2ced85-7d05-4afc-9fc1-a493dc5915cf::",
@@ -15,9 +15,7 @@
 			  "port": 443,
 			  "url": "https://5e4f7796-801b-4c5c-8eec-d64d8cd01174-bluemix:1d946eab89dcbcf29f08da6b01e3721f7b1baad9010b1dafb846c174aa4d9b76@5e4f7796-801b-4c5c-8eec-d64d8cd01174-bluemix.cloudant.com",
 			  "username": "5e4f7796-801b-4c5c-8eec-d64d8cd01174-bluemix"
-            }
-            ,
-
+            },
             "syslog_drain_url": null,
             "volume_mounts": [],
             "label": "cloudantNoSQLDB",
