@@ -10,8 +10,6 @@ const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 const btoa = require("btoa");
 const wml_credentials = new Map();
 exports.login = function(req, res) {
-    
-    console.log('hi');
     var username = req.body.username ;
     var password = req.body.password ;
  

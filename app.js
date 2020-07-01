@@ -20,7 +20,7 @@ var cloudant;
 var fileToUpload;
 
 var dbCredentials = {
-    dbName: 'getpillsapp'
+    dbName: 'newnormal'
 };
 
 var bodyParser = require('body-parser');
@@ -30,7 +30,6 @@ var errorHandler = require('errorhandler');
 var multipart = require('connect-multiparty')
 var multipartMiddleware = multipart();
 var userController = require('./controllers/userController');
-
 
 
 // all environments
@@ -65,15 +64,6 @@ if ('development' == app.get('env')) {
     app.use(errorHandler());
 }
 
-ageBreakup=[{
-            'diseaseName': 'Cholera',
-            'symptoms':['Diarrhea','Nausea','Vomiting','Mild to Severe Dehydration'],
-            'ageRange': "30-40"
-        },{
-            'diseaseName': 'Influenza',
-            'symptoms':['High Fever','Running Nose','Sore Throat','Muscle pain','headache','Coughing','Feeling Tired'],
-            'ageRange': "40-50"
-        }];
 
 function getDBCredentialsUrl(jsonData) {
     var vcapServices = JSON.parse(jsonData);
@@ -126,10 +116,15 @@ app.get('/', routes.index);
   next();
 });*/
 app.post('/login', userController.login);
-app.post('/getregion', userController.getregion);
-/*Added method to get Patient Details */
+/*Added method to Register */
+app.post('/api/register', function(request,response){
+    console.log("Get method invoked.. ")
+    db = cloudant.use(dbCredentials.dbName);
+	
+});	
 
-app.get('/api/getOrders', function (request, response) {
+
+app.get('/api/getUsers', function (request, response) {
     console.log("Get method invoked.. ")
 
     db = cloudant.use(dbCredentials.dbName);
@@ -143,7 +138,7 @@ app.get('/api/getOrders', function (request, response) {
             } else {
                 var query = {
                     "selector": {
-                        "document_type": "order"
+                        "document_type": "user"
                     }
                 };
 
