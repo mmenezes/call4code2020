@@ -1,0 +1,9 @@
+applications:
+  - path: .
+    name: C4C_careforU
+    environment_json: {}
+    memory: 512M
+    instances: 1
+    disk_quota: 2048M
+    services:
+      - Cloudant-03

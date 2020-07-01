@@ -1,0 +1,275 @@
+<head>
+	<title>
+	   Kiosk::Dashboard
+	</title>
+   <style>
+        .users-list>li img {
+            border-radius: 50%;
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+	
+
+  <!--  <style>
+        /*.loading { border:1px solid #ddd; padding:20px; margin:40px 5px; width:80px;}*/
+        
+        #loader {
+            transition: all .3s ease-in-out;
+            opacity: 1;
+            visibility: visible;
+            position: fixed;
+            height: 100vh;
+            width: 100%;
+            background: #fff;
+            z-index: 90000
+        }
+        
+        #loader.fadeOut {
+            opacity: 0;
+            visibility: hidden
+        }
+        
+        .spinner {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            top: calc(50% - 20px);
+            left: calc(50% - 20px);
+            background-color: #333;
+            border-radius: 100%;
+            -webkit-animation: sk-scaleout 1s infinite ease-in-out;
+            animation: sk-scaleout 1s infinite ease-in-out
+        }
+        
+        @-webkit-keyframes sk-scaleout {
+            0% {
+                -webkit-transform: scale(0)
+            }
+            100% {
+                -webkit-transform: scale(1);
+                opacity: 0
+            }
+        }
+        
+        @keyframes sk-scaleout {
+            0% {
+                -webkit-transform: scale(0);
+                transform: scale(0)
+            }
+            100% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+                opacity: 0
+            }
+        }
+      
+          .users-list>li img {
+            border-radius: 50%;
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+-->
+</head>
+
+<body>
+     <div ng-include="'../header/header.html'"></div>
+    <div>
+        <main class="main-content bgc-grey-100">
+            <div id="mainContent" ng-controller="hospitalDashboardController" >
+                <div class="row gap-20">
+                    <div class="col-md-3">
+                        <div class="layers bd bgc-white p-20">
+                            <div class="layer w-100 mB-10">
+                                <h6 class="lh-1">Orders Fullfilled</h6></div>
+                            <div class="layer w-100">
+                                <div class="peers ai-sb fxw-nw">
+                                    <div class="peer peer-greed"><span id="sparklinedash"><canvas width="45" height="20" style="display: inline-block; width: 45px; height: 20px; vertical-align: top;"></canvas></span></div>
+                                    <div class="peer"><span class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-green-50 c-green-500">+65%</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="layers bd bgc-white p-20">
+                            <div class="layer w-100 mB-10">
+                                <h6 class="lh-1">Total Patients Served</h6></div>
+                            <div class="layer w-100">
+                                <div class="peers ai-sb fxw-nw">
+                                    <div class="peer peer-greed"><span id="sparklinedash2"><canvas width="45" height="20" style="display: inline-block; width: 45px; height: 20px; vertical-align: top;"></canvas></span></div>
+                                    <div class="peer"><span class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-red-50 c-red-500">40 K</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="layers bd bgc-white p-20">
+                            <div class="layer w-100 mB-10">
+                                <h6 class="lh-1">Number of Patients Registered </h6></div>
+                            <div class="layer w-100">
+                                <div class="peers ai-sb fxw-nw">
+                                    <div class="peer peer-greed"><span id="sparklinedash3"><canvas width="45" height="20" style="display: inline-block; width: 45px; height: 20px; vertical-align: top;"></canvas></span></div>
+                                    <div class="peer"><span class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-purple-50 c-purple-500">45 K</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="layers bd bgc-white p-20">
+                            <div class="layer w-100 mB-10">
+                                <h6 class="lh-1">Stock Levels</h6></div>
+                            <div class="layer w-100">
+                                <div class="peers ai-sb fxw-nw">
+                                    <div class="peer peer-greed"><span id="sparklinedash4"><canvas width="45" height="20" style="display: inline-block; width: 45px; height: 20px; vertical-align: top;"></canvas></span></div>
+                                    <div class="peer"><span class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-blue-50 c-blue-500">80%</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+				</div>
+				
+                <div class="row gap-20">
+				    <div class="col-md-8">
+						<!--table starts -->
+						<!-- product -->
+						 <!-- TABLE: LATEST ORDERS -->
+						  <div class="box box-info">
+							<div class="box-header with-border">
+							  <h3 class="box-title">Latest Orders</h3>
+							  <div class="box-tools pull-right">
+								<button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+								<button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+							  </div>
+							</div><!-- /.box-header -->
+							<div class="box-body">
+							  <div class="table-responsive">
+								<table class="table no-margin">
+								  <thead>
+									<tr>
+									  <th>Order ID</th>
+									  <th>Patient Name</th>
+									  <th>Status</th>
+									  <th>Order Date</th>
+									</tr>
+								  </thead>
+								  <tbody>
+									<tr ng-repeat="order in orderResults">
+									  <td><a href="pages/examples/invoice.html">{{order.id}}</a></td>
+									  <td> {{order.name}}</td>
+									  <td><span class="label label-info">{{order.status}}</span></td>
+									  <td><div class="label" data-color="#00a65a">{{order.order_date}}</div></td>
+									</tr>
+								  </tbody>
+								</table>
+							  </div><!-- /.table-responsive -->
+							</div><!-- /.box-body -->
+							<div class="box-footer clearfix">
+							  <a href="javascript::;" class="btn btn-sm btn-info btn-flat pull-left">Place New Order</a>
+							  <a href="javascript::;" class="btn btn-sm btn-default btn-flat pull-right">View All Orders</a>
+							</div><!-- /.box-footer -->
+						  </div><!-- /.box -->
+						</div><!-- /.col -->
+					<div class="col-md-4">
+					<div class="box box-default">
+						<div class="box-header with-border">
+						  <h3 class="box-title">Inventory Supplies</h3>
+						  <div class="box-tools pull-right">
+							<button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+							<button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+						  </div>
+						</div><!-- /.box-header -->
+						<div class="box-body">
+						  <div class="row">
+							<div class="col-md-8">
+							  <div class="chart-responsive">
+								<!--canvas id="pieChart" height="150"></canvas-->
+								<canvas id="myChart" width="150" height="150" class = "piChartStyle"></canvas> 
+							  </div><!-- ./chart-responsive -->
+							</div><!-- /.col -->
+							<div class="col-md-4">
+							  <ul class="chart-legend clearfix">
+								<li><i class="fa fa-circle-o text-red"></i> Gluco Sticks</li>
+								<li><i class="fa fa-circle-o text-green"></i> Insuline</li>
+								<li><i class="fa fa-circle-o text-yellow"></i> Lancets</li>
+								<li><i class="fa fa-circle-o text-aqua"></i>  Syringes</li>
+								<li><i class="fa fa-circle-o text-light-blue"></i> B P Testor</li>
+								<li><i class="fa fa-circle-o text-gray"></i> Blood thinners</li>
+							  </ul>
+							</div><!-- /.col -->
+						  </div><!-- /.row -->
+						</div><!-- /.box-body -->
+						<div class="box-footer no-padding">
+						  <ul class="nav nav-pills nav-stacked">
+							<li><a href="#">Type 2 Diabetes <span class="pull-right text-red"><i class="fa fa-angle-down"></i> 12%</span></a></li>
+							<li><a href="#">Hypertension <span class="pull-right text-green"><i class="fa fa-angle-up"></i> 4%</span></a></li>
+							<li><a href="#">Heart <span class="pull-right text-yellow"><i class="fa fa-angle-left"></i> 0%</span></a></li>
+						  </ul>
+						</div><!-- /.footer -->
+					  </div><!-- /.box -->
+					 <!-- New Patient LIST -->
+					  <div class="box box-primary">
+						<div class="box-header with-border">
+						  <h3 class="box-title">Recently Joined Patients</h3>
+						  <div class="box-tools pull-right">
+							<button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+							<button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+						  </div>
+						</div><!-- /.box-header -->
+						<div class="box-body">
+						  <ul class="products-list product-list-in-box">
+							<li ng-repeat="x in dataResults" class="item">
+								<div class="product-img">
+									<img ng-if="x.img" src="images/bp_icon.jpg" alt="Product Image">
+									<img ng-if="!x.img" src="images/diabetics.png" alt="Product Image">
+								</div>
+								<div class="product-info">
+									<a href="javascript::;" class="product-title">{{x.name}} </a>
+									<span class="product-description">
+										Age {{x.age}}, {{x.gender}}, {{x.doctor}}.
+									</span>
+							    </div>
+							</li>							
+						  </ul>
+						</div><!-- /.box-body -->
+						<div class="box-footer text-center">
+						  <a href="/kiosk/patientDashboard">View More Patient Details</a>
+						</div><!-- /.box-footer -->
+					  </div><!-- /.box -->
+					</div>
+				 </div>
+				 <div class="row gap-20">
+				 </div> 
+			  </div> <!-- Before main -->
+        </main>
+    </div>
+    <script>
+		var ctx = document.getElementById("myChart").getContext('2d');
+		data = {
+			 datasets: [{
+				data: [700, 400, 50, 600, 300, 100],
+				backgroundColor: [
+					'#ff6384',
+					'#36a2eb',
+					'#f39c12',
+					'#00c0ef',
+					'#3c8dbc',
+					'#d2d6de'
+				]
+			}],
+			labels: ['Gluco sticks', 'Insuline', 'Lancets', 'Syringes', 'B P Machine', 'Blood Thinners'],
+		};
+		var myDoughnutChart = new Chart(ctx, {
+			type: 'doughnut',
+			data: data,
+			options: {
+						legend: {
+							display: false
+						},
+						
+					}
+			
+		});
+		
+</script>
+</body>

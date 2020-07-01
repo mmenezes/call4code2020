@@ -1,0 +1,244 @@
+<!doctype html>
+<html>
+ <head>
+    <meta charset="utf-8">
+	
+	<title>
+	Kiosk:: Customer Dashboard
+	</title>
+	<style>
+        .users-list>li img {
+            border-radius: 50%;
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+	<script>
+		
+  const areaChartBox = document.getElementById('areaChart');
+
+  if (areaChartBox) {
+    const areaCtx = areaChartBox.getContext('2d');
+    areaChartBox.height = 320;
+	mychart = new Chart(areaCtx, {
+      type: 'line',
+      data: {
+        labels: ['Week1', 'Week2', 'Week3', 'Week4', 'Week5', 'Week6', 'Week7'],
+        datasets: [{
+          label                : 'Following',
+          backgroundColor      : 'rgba(100, 231, 23, 0.5)',
+          borderColor          : 'rgba(27, 31, 146, 0.5)',
+          pointBackgroundColor : 'rgba(237, 31, 146, 0.5)',
+          borderWidth          : 2,
+          data                 : [60, 50, 70, 75, 70, 81, 88],
+        }],
+      },
+
+      options: {
+        legend: {
+          display: false,
+        },
+      }
+
+    });
+    
+  }
+
+  const patientBarChartBox = document.getElementById('patient-bar-chart');
+
+  if (patientBarChartBox) {
+    const barCtx = patientBarChartBox.getContext('2d');
+	patientBarChartBox.height = 320;
+	mybarchart =  new Chart(barCtx, {
+      type: 'bar',
+      data: {
+        labels: ['Diabetes', 'Hypertension', 'Heart disease', 'Hypercholesterolemia', 'Alzheimer'],
+        datasets: [{
+          label           : 'Men',
+          backgroundColor : 'rgba(100, 231, 23, 0.5)',
+          borderColor     : 'rgba(27, 31, 146, 0.5)',
+          borderWidth     : 1,
+          data            : [40, 50, 45, 85, 0],
+        }, {
+          label           :  'Ladies',
+          backgroundColor : 'rgba(150, 231, 123, 0.5)',
+          borderColor     : 'rgba(27, 31, 146, 0.5)',
+          borderWidth     : 1,
+          data            : [10, 50, 10, 75, 5],
+        }]
+      },
+
+      options: {
+        responsive: true,
+        legend: {
+          position: 'bottom',
+        },
+      }
+    });
+  }
+
+</script>
+</head>
+ <body class="app">
+ 	<div ng-include="'../header/header.html'"></div>
+	<div>
+        <main class="main-content bgc-grey-100">
+            <div id="mainContent">
+          <div class="row">
+            <div class="col-md-6">
+              <!-- AREA CHART -->
+              <div class="box box-primary">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Patients Following Care Plan</h3>
+                  <div class="box-tools pull-right">
+                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                  </div>
+                </div>
+                <div class="box-body">
+                  <div class="chart">
+                    <canvas id="areaChart" style="height:250px"></canvas>
+                  </div>
+                </div><!-- /.box-body -->
+              </div><!-- /.box -->
+
+              <!-- DONUT CHART -->
+              <div class="box box-info">
+                <div class="box-header">
+                  <i class="fa fa-comments-o"></i>
+                  <h3 class="box-title">Chat</h3>
+                  <div class="box-tools pull-right" data-toggle="tooltip" title="Status">
+                    <div class="btn-group" data-toggle="btn-toggle" >
+                      <button type="button" class="btn btn-default btn-sm active"><i class="fa fa-square text-green"></i></button>
+                      <button type="button" class="btn btn-default btn-sm"><i class="fa fa-square text-red"></i></button>
+                    </div>
+                  </div>
+                </div>
+                <div class="box-body chat" id="chat-box">
+				  <div class="item">
+                    <img src="images/happy.png" alt="user image" class="online">
+                    <p class="message">
+                      <a href="#" class="name">
+                        <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 2:15</small>
+                        Virgil Brenner
+                      </a>
+                      I would like to meet you to discuss when I will receive my pills.<br/>
+					  I would like to order some blood sugar testing strips
+                    </p>
+                    </div><!-- /.item -->
+					<div class="item">
+                    <img src="images/happy.png" alt="user image" class="online">
+                    <p class="message">
+                      <a href="#" class="name">
+                        <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 2:15</small>
+                        Margery Metcalf
+                      </a>
+                      I would like to meet you to discuss when I will receive my pills.<br/>
+					  I would like to order some blood sugar testing strips
+                    </p>
+                    </div><!-- /.item -->
+					<div class="item">
+                    <img src="images/depressed.png" alt="user image" class="offline">
+                    <p class="message">
+                      <a href="#" class="name">
+                        <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 2:55</small>
+                        Branda Adger
+                      </a>
+                      I need help with checking my Blood pressure.<br/>
+					  I am Unable to sleep well <br/>
+					  I am looking for my brother <br/>
+                    </p>
+                    </div><!-- /.item -->
+					<div class="item">
+                    <img src="images/content.png" alt="user image" class="online">
+                    <p class="message">
+                      <a href="#" class="name">
+                        <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 8:15</small>
+                        Janean Lacaze
+                      </a>
+                      Can you help me with my yoga?.<br/>
+					  I would like to order some blood sugar testing strips
+                    </p>
+                    </div><!-- /.item -->
+                  <!-- chat item -->
+                </div><!-- /.box-body -->
+              </div><!-- /.box -->
+
+            </div><!-- /.col (LEFT) -->
+            <div class="col-md-6">
+              <!-- LINE CHART -->
+              <div class="box box-info">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Orders via various Channels</h3>
+                  <div class="box-tools pull-right">
+                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                  </div>
+                </div>
+                <div class="box-body"> <!-- start box-->
+				<div class="info-box bg-yellow">
+					<span class="info-box-icon"><i class="ion ion-android-cart"></i></span>
+					<div class="info-box-content">
+					  <span class="info-box-text">Walk In Orders</span>
+					  <span class="info-box-number">5,200</span>
+					  <div class="progress">
+						<div class="progress-bar" style="width: 40%"></div>
+					  </div>
+					  <span class="progress-description">
+						20% Decrease in 30 Days
+					  </span>
+					</div><!-- /.info-box-content -->
+				  </div><!-- /.info-box -->
+				  <div class="info-box bg-green">
+					<span class="info-box-icon"><i class="ion ion-document"></i></span>
+					<div class="info-box-content">
+					  <span class="info-box-text">During Registration</span>
+					  <span class="info-box-number">92,050</span>
+					  <div class="progress">
+						<div class="progress-bar" style="width: 70%"></div>
+					  </div>
+					  <span class="progress-description">
+						20% Increase in 30 Days
+					  </span>
+					</div><!-- /.info-box-content -->
+				  </div><!-- /.info-box -->
+				  <div class="info-box bg-red">
+					<span class="info-box-icon"><i class="ion ion-ios-chatboxes"></i></span>
+					<div class="info-box-content">
+					  <span class="info-box-text">Chats</span>
+					  <span class="info-box-number">114,381</span>
+					  <div class="progress">
+						<div class="progress-bar" style="width: 80%"></div>
+					  </div>
+					  <span class="progress-description">
+						70% Increase in 30 Days
+					  </span>
+					</div><!-- /.info-box-content -->
+				  </div><!-- /.info-box -->
+                </div><!-- /.box-body -->
+              </div><!-- /.box -->
+
+              <!-- BAR CHART -->
+              <div class="box box-success">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Distribution of Diseases</h3>
+                  <div class="box-tools pull-right">
+                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                  </div>
+                </div>
+                <div class="box-body">
+                  <div class="chart">
+                    <canvas id="patient-bar-chart" style="height:230px"></canvas>
+                  </div>
+                </div><!-- /.box-body -->
+              </div><!-- /.box -->
+
+            </div><!-- /.col (RIGHT) -->
+          </div><!-- /.row -->
+			 </div>
+		</main>
+	</div>	
+	
+</body>
+ </html> 

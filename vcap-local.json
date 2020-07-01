@@ -1,0 +1,36 @@
+{
+    "cloudantNoSQLDB": [
+        {
+            "name": "newnormal",
+            "instance_name": "newnormal",
+            "binding_name": null,
+			{
+              "apikey": "b9rwK-3ADtMxS-2DUbtupJWOGCC5X0FP0nC8PeE8fDvm",
+              "host": "5e4f7796-801b-4c5c-8eec-d64d8cd01174-bluemix.cloudant.com",
+              "iam_apikey_description": "Auto generated apikey during resource-key operation for Instance - crn:v1:bluemix:public:cloudantnosqldb:eu-gb:a/c2baa20aeedd78f82f04763d9e950327:3b2ced85-7d05-4afc-9fc1-a493dc5915cf::",
+              "iam_apikey_name": "auto-generated-apikey-ccfbaa19-2eb5-4884-ad89-01001f058870",
+			  "iam_role_crn": "crn:v1:bluemix:public:iam::::serviceRole:Manager",
+			  "iam_serviceid_crn": "crn:v1:bluemix:public:iam-identity::a/c2baa20aeedd78f82f04763d9e950327::serviceid:ServiceId-369e1643-eee4-4291-94cd-10c036bf7c0e",
+			  "password": "1d946eab89dcbcf29f08da6b01e3721f7b1baad9010b1dafb846c174aa4d9b76",
+			  "port": 443,
+			  "url": "https://5e4f7796-801b-4c5c-8eec-d64d8cd01174-bluemix:1d946eab89dcbcf29f08da6b01e3721f7b1baad9010b1dafb846c174aa4d9b76@5e4f7796-801b-4c5c-8eec-d64d8cd01174-bluemix.cloudant.com",
+			  "username": "5e4f7796-801b-4c5c-8eec-d64d8cd01174-bluemix"
+            }
+            ,
+
+            "syslog_drain_url": null,
+            "volume_mounts": [],
+            "label": "cloudantNoSQLDB",
+            "provider": null,
+            "plan": "Lite",
+            "tags": [
+                "data_management",
+                "ibm_created",
+                "lite",
+                "ibm_dedicated_public"
+            ]
+        }
+    ]
+
+
+}
