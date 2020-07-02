@@ -1,0 +1,145 @@
+html .ui-page-theme-b {
+    /*background: #2c3e50;*/
+}
+.ui-content {
+    padding: 0;
+}
+
+body {
+    overflow: hidden;
+}
+
+html .m-health .ui-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: inherit;
+    border: none;
+    box-shadow: none;
+    text-shadow: none;
+    color: #999;
+}
+
+html .m-health .ui-header {
+    border-bottom: 0px soild #f9f9f9;
+}
+
+.app-title-cntr {
+    width: 204px;
+    height: 40px;
+    margin: auto;
+    line-height: 40px;
+}
+
+.app-title {
+    float: left;
+    color: #16a085;
+    text-shadow: none;
+    margin-left: 5px;
+}
+
+.app-icon {
+    float: left;
+    margin-top: 7px;
+    background-image: url('../img/my-heart-icon.png');
+        width: 25px;
+    height: 25px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.fa-app-icon {
+    float: left;
+    color: #16a085;  
+	margin-top:10px;
+	margin-right:-3px;
+    
+}
+
+.app-title-m {
+    color: white;
+}
+
+.copyright {
+    text-align: right;
+    font-size: 0.7em;
+    font-weight: normal;
+    margin-right: 5px;
+}
+
+[class*=ui-block-]>.ui-btn {
+    margin: 1px;
+}
+
+html .ui-page-theme-b .ui-grid-a .ui-btn,
+html .ui-page-theme-b .ui-grid-a .ui-btn:hover,
+html .ui-page-theme-b .ui-grid-a .ui-btn:active {
+    color: #2c3e50;  
+    text-shadow: none;
+    font-weight: normal;
+    font-size: 0.8em;
+}
+
+html .ui-page-theme-b .ui-grid-a:nth-child(odd) .ui-block-b .ui-btn, html .ui-page-theme-b .ui-grid-a:nth-child(odd)  .ui-block-b .ui-btn:visited {
+    background: #96D1C5;
+    border-color: #96D1C5;
+}
+
+html .ui-page-theme-b .ui-grid-a:nth-child(even) .ui-block-a .ui-btn, html .ui-page-theme-b .ui-grid-a:nth-child(even)  .ui-block-a .ui-btn:visited {
+    background: #96D1C5;
+    border-color: #96D1C5;
+    
+}
+
+html .ui-page-theme-b .dashboard-content .ui-grid-a .ui-block-a .ui-btn:hover, 
+html .ui-page-theme-b .dashboard-content .ui-grid-a .ui-block-b .ui-btn:hover, 
+html .ui-page-theme-b .dashboard-content .ui-grid-a .ui-block-a .ui-btn:active,
+html .ui-page-theme-b .dashboard-content .ui-grid-a .ui-block-b .ui-btn:active {
+    background: #2c3e50;
+    border-color: #2c3e50;
+    color: #F97E76; /*peach*/
+    
+}
+
+
+.main-btn {
+    height: 100px; 
+}
+
+.dashboard-btn-icon {
+    margin-top: 15px;    
+}
+
+.dashboard-btn-lbl {
+    margin-top: 10px;
+    clear: left;
+}
+
+.dashboard-info-lbl {
+    font-weight: bold;
+    font-size: 3.7em;
+    margin-top: 5px;
+}
+
+.dashboard-info-txt {
+    margin-top: -2px;
+    
+}
+
+.dashboard-btn-sub-section {
+    float: left;
+    width: 50%;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.dashboard-btn-section-border {
+    border-right: 1px solid #f9f9f9;
+}
+
+.dashboard-btn-section-lbl {
+}
+
+.dashboard-btn-section-value {
+    font-size: 3.5em;
+}
