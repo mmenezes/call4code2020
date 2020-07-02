@@ -46,9 +46,11 @@ app.use(bodyParser.json());
 app.use(methodOverride());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use("/scripts", express.static(__dirname + '/public/scripts'));
-app.use(express.static(path.join(__dirname, 'views')));
+//app.use(express.static(path.join(__dirname, 'views')));
 app.use(express.static(path.join(__dirname, 'javascripts')));
 app.use('/style', express.static(path.join(__dirname, '/views/style')));
+app.use(express.static(path.join(__dirname, 'public')));
+
 app.use('/user', user);
 
 app.use(function (req, res, next) {
@@ -58,6 +60,8 @@ app.use(function (req, res, next) {
   res.setHeader('Access-Control-Allow-Credentials', true);
   next();
 });
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 // development only
 if ('development' == app.get('env')) {
@@ -529,9 +533,13 @@ app.post('/api/checkin', function (request, response) {
 
 app.use(express.static(__dirname));
 
-app.get('*', function(req, res) {
-	res.sendfile('./views/index.html')
-}) 
+app.get('/', function (req, res) {
+  res.render('index.html',{
+      "eventsCount" : "5",
+      "requestedCount" : "3",
+      "acceptedCount" : "2"
+  });
+});
 	 
 exports = module.exports = app;
 http.createServer(app).listen(app.get('port'), '0.0.0.0', function () {
