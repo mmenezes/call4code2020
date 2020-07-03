@@ -6,7 +6,7 @@ var express = require('express'),
     routes = require('./routes'),
     user = require('./routes/user'),
 	login = require('./routes/login'),
-    http = require('http'),
+    http = require('https'),
     path = require('path'),
     fs = require('fs');
 NaturalLanguageUnderstandingV1 = require('watson-developer-cloud/natural-language-understanding/v1');
@@ -540,10 +540,11 @@ app.get('/', function (req, res) {
       "acceptedCount" : "2"
   });
 });
+
+const key = fs.readFileSync('./key.pem');
+const cert = fs.readFileSync('./cert.pem');
 	 
 exports = module.exports = app;
-http.createServer(app).listen(app.get('port'), '0.0.0.0', function () {
+http.createServer({key: key, cert: cert },app).listen(app.get('port'), '0.0.0.0', function () {
     console.log('Express server listening on port ' + app.get('port'));
 });
-
-
