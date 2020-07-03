@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymleaf.org">
+<head>
+    <title>Instascan</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/3.3.3/adapter.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"></script>
+    <script type="text/javascript" src="instascan.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<video id="preview"></video>
+<script>
+document.addEventListener("DOMContentLoaded", event => {
+  let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+  Instascan.Camera.getCameras().then(cameras => {
+    scanner.camera = cameras[cameras.length - 1];
+    scanner.start();
+  }).catch(e => console.error(e));
+
+  scanner.addListener('scan', content => {
+    console.log(content);
+    
+    var obj = JSON.parse(content);
+    $('#orgname').val(obj.name);
+    $('#address').val(obj.address);   
+    
+  });
+
+});
+  
+</script>
+
+<form th:action="@{/QRoutput}" th:object="${qrDetails}">
+	<h4> Name of Place </h4>
+	<input type="text" name="orgname" id="orgname" placeholder="Orgnisatio Name" >
+	<h4>Address</h4>
+	<input type="text" name="address" id="address" placeholder="Location Details" >
+	<input type="text" name="temperature" id="temperature" placeholder="Please enter your body temperature here">
+	<input type="submit">
+</form>
+
+</body>
+</html>
