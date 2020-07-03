@@ -33,7 +33,7 @@ html .m-health .ui-header {
 
 .app-title {
     float: left;
-    color: #16a085;
+    color: #FFF;
     text-shadow: none;
     margin-left: 5px;
 }
@@ -50,7 +50,7 @@ html .m-health .ui-header {
 
 .fa-app-icon {
     float: left;
-    color: #16a085;  
+    color: #FFF;  
 	margin-top:10px;
 	margin-right:-3px;
     
@@ -74,20 +74,20 @@ html .m-health .ui-header {
 html .ui-page-theme-b .ui-grid-a .ui-btn,
 html .ui-page-theme-b .ui-grid-a .ui-btn:hover,
 html .ui-page-theme-b .ui-grid-a .ui-btn:active {
-    color: #2c3e50;  
+    color: #002549;  
     text-shadow: none;
     font-weight: normal;
     font-size: 0.8em;
 }
 
 html .ui-page-theme-b .ui-grid-a:nth-child(odd) .ui-block-b .ui-btn, html .ui-page-theme-b .ui-grid-a:nth-child(odd)  .ui-block-b .ui-btn:visited {
-    background: #96D1C5;
+    background: #97ccf1;
     border-color: #96D1C5;
 }
 
 html .ui-page-theme-b .ui-grid-a:nth-child(even) .ui-block-a .ui-btn, html .ui-page-theme-b .ui-grid-a:nth-child(even)  .ui-block-a .ui-btn:visited {
-    background: #96D1C5;
-    border-color: #96D1C5;
+    background: #97ccf1;
+    border-color: #97ccf1;
     
 }
 
@@ -95,12 +95,19 @@ html .ui-page-theme-b .dashboard-content .ui-grid-a .ui-block-a .ui-btn:hover,
 html .ui-page-theme-b .dashboard-content .ui-grid-a .ui-block-b .ui-btn:hover, 
 html .ui-page-theme-b .dashboard-content .ui-grid-a .ui-block-a .ui-btn:active,
 html .ui-page-theme-b .dashboard-content .ui-grid-a .ui-block-b .ui-btn:active {
-    background: #2c3e50;
-    border-color: #2c3e50;
-    color: #F97E76; /*peach*/
+    background: #0d67b7;
+    border-color: #0d67b7;
+    color: #FFF; /*peach*/
     
 }
-
+html .ui-page-theme-b .ui-btn:hover,html .ui-bar-b .ui-btn:hover,html .ui-body-b .ui-btn:hover,html body .ui-group-theme-b .ui-btn:hover,html body .ui-btn.ui-btn-b:hover{
+	background:#0d67b7 !important;border-color:#0d67b7 !important;color:#fff }
+	
+html .ui-bar-a,html .ui-page-theme-a .ui-bar-inherit,html .ui-bar-a .ui-bar-inherit,html .ui-body-a .ui-bar-inherit,html body .ui-group-theme-a .ui-bar-inherit{
+	background:#0d67b7 !important;border-color:#0d67b7 !important;color:#fff;font-weight:700}
+	
+html .ui-page-theme-b .ui-btn,html .ui-bar-b .ui-btn,html .ui-body-b .ui-btn,html body .ui-group-theme-b .ui-btn,html body .ui-btn.ui-btn-b,html .ui-page-theme-b .ui-btn:visited,html .ui-bar-b .ui-btn:visited,html .ui-body-b .ui-btn:visited,html body .ui-group-theme-b .ui-btn:visited,html body .ui-btn.ui-btn-b:visited{
+	background:#2e9eed;border-color:#2e9eed;}
 
 .main-btn {
     height: 100px; 
