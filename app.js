@@ -127,6 +127,11 @@ app.post('/api/register', function(request,response){
 	
 });	
 
+app.post('/api/checkin', function(request,response){
+    console.log("Post method invoked.. ")
+//    db = cloudant.use(dbCredentials.dbName);
+	console.log(request.body);
+});	
 
 app.get('/api/getUsers', function (request, response) {
     console.log("Get method invoked.. ")

@@ -2,28 +2,9 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/3.3.3/adapter.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"></script>
     <script type="text/javascript" src="../js/instascan.js"></script>
+	<script type="text/javascript" src="../js/checkin.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	
-<script>
-document.addEventListener("DOMContentLoaded", event => {
-  let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
-  Instascan.Camera.getCameras().then(cameras => {
-    scanner.camera = cameras[cameras.length - 1];
-    scanner.start();
-  }).catch(e => console.error(e));
-
-  scanner.addListener('scan', content => {
-    console.log(content);
-    
-    var obj = JSON.parse(content);
-    $('#orgname').val(obj.name);
-    $('#address').val(obj.address);   
-    
-  });
-
-});
-  
-</script>
 <div id="checkin" data-role="page" data-theme="b">
 <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme='a'>
         <a href="#mainPanel" data-theme="b" class="ui-btn ui-shadow ui-corner-all ui-icon-bars ui-btn-icon-notext ui-btn-right"></a>
@@ -34,17 +15,16 @@ document.addEventListener("DOMContentLoaded", event => {
         </div>
     </div>
 	<div data-role="main" class="ui-content">
-<body>
 <video id="preview"></video>
 
 
-<form th:action="@{/QRoutput}" th:object="${qrDetails}">
+<form id="checkinform" method="POST" >
 	<h4> Name of Place </h4>
-	<input type="text" name="orgname" id="orgname" placeholder="Orgnisatio Name" >
+	<input type="text" name="orgname" id="orgname" placeholder="Oragnisation Name" >
 	<h4>Address</h4>
 	<input type="text" name="address" id="address" placeholder="Location Details" >
-	<input type="text" name="temperature" id="temperature" placeholder="Please enter your body temperature here">
-	<input type="button" name="checkin">
+	<input type="range" name="temperature" id="temperature" min="94" max="105" step=1 value=98>
+	<input id="checkinuser" type="button" value="checkin">
 </form>
 
 	</div>
