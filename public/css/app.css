@@ -150,3 +150,8 @@ html .ui-page-theme-b .ui-btn,html .ui-bar-b .ui-btn,html .ui-body-b .ui-btn,htm
 .dashboard-btn-section-value {
     font-size: 3.5em;
 }
+
+video {
+  width: 100%;
+  height: auto;
+}

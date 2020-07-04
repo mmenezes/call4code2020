@@ -3,9 +3,17 @@
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
+		
+		<script src="../humane/humane.min.js"></script>
+   		<script src="../js/util.js"></script>
+        <link rel="stylesheet" href="../font-awesome-4.5.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="../css/jquery.mobile-1.4.5.min.css">
+		<link rel="stylesheet" href="../css/jquery.mobile.flatui.min.css">
+		<link rel="stylesheet" href="../css/app.css">
 		<script src="../lib/jquery-1.11.3.min.js"></script>
 		<script src="../lib/jquery.mobile-1.4.5.min.js"></script>
 		<script src="../js/app.js"></script>
+		<script src="../js/login.js"></script>
 		<script src="../js/dashboard.js"></script>
 		<script src="../js/comingSoon.js"></script>
 		<script src="../js/privacy.js"></script>
@@ -17,17 +25,41 @@
 		<link rel="stylesheet" href="../css/jquery.mobile-1.4.5.min.css">
 		<link rel="stylesheet" href="../css/jquery.mobile.flatui.min.css">
 		<link rel="stylesheet" href="../css/app.css">
-
+		<script src="../js/appointment.js"></script>
 	</head>
     
 	<body class="m-health">
 		
 		       
-				  <% include navPanel.html %>
+		<% include navPanel.html %>
+		<% include login.html %>
         <% include dashboard.html %>
 		<% include comingSoon.html %>	
         <% include privacy.html %>
         <% include checkin.html %>		
 		<% include hotspot.html %>
+		<% include appointment.html %>	
+		
+		
+		
+		
+		
+		
+		<script src="../js/static/js/2.4abb1b6c.chunk.js"></script>
+		<script src="../js/static/js/main.1e6fe354.chunk.js"></script>
+		<script src="../js/static/js/runtime-main.ed0842fb.js"></script>
+		<link rel="stylesheet" href="../js/static/css/2.81e60bb4.chunk.css">
+		<link rel="stylesheet" href="../js/static/css/main.5ecd60fb.chunk.css">
+
+		<script>
+		$( document ).ready(function() {
+			$('#hospitals').on('change', function(){
+			        var selectedHospital = $(this).children("option:selected").val();
+					$('.rcw-launcher').click();
+					$('.rcw-new-message').val('Hello ' + selectedHospital + ' Ashish');
+					$('.rcw-send').click();
+			});
+		});
+		</script>
 	</body>
 </html>

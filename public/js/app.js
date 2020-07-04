@@ -1,3 +1,3 @@
 $( document ).ready(function() {
-    $( "body>[data-role='panel']" ).panel();
+   // $( "body>[data-role='panel']" ).panel();
 });
