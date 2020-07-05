@@ -3,8 +3,12 @@ $( document ).on( "pageinit", "#checkin", function( event ) {
 	$("#checkinuser").click(function(){$.post('/api/checkin',  // url
        $("#checkinform").serialize(), // data to be submit
        function(data, status, xhr) {   // success callback function
-                alert('status: ' + status + ', data: ' + data.responseData);
-            },
+	      if (status=='success'){
+            //$("#popupDialog").popup("open")
+			alert("Checkin Success Stay Safe!!")
+		  }else 
+        	alert("Error checking In. Please try Again");		  
+          },
 	'json')});
 });
 
@@ -13,7 +17,7 @@ $( document ).on( "pagebeforeshow", "#checkin", function( event ) {
 });
 
 $( document ).on( "pageshow", "#checkin", function( event ) {
-  let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+ let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
   Instascan.Camera.getCameras().then(cameras => {
     scanner.camera = cameras[cameras.length - 1];
     scanner.start();

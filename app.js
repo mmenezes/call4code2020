@@ -9,6 +9,7 @@ var express = require('express'),
     http = require('https'),
     path = require('path'),
     fs = require('fs');
+
 NaturalLanguageUnderstandingV1 = require('watson-developer-cloud/natural-language-understanding/v1');
 
 var app = express();
@@ -30,7 +31,7 @@ var errorHandler = require('errorhandler');
 var multipart = require('connect-multiparty')
 var multipartMiddleware = multipart();
 var userController = require('./controllers/userController');
-
+const { uuid } = require('uuidv4');
 
 // all environments
 app.set('port', process.env.PORT || 5000);
@@ -129,8 +130,22 @@ app.post('/api/register', function(request,response){
 
 app.post('/api/checkin', function(request,response){
     console.log("Post method invoked.. ")
-//    db = cloudant.use(dbCredentials.dbName);
-	console.log(request.body);
+    db = cloudant.use(dbCredentials.dbName);
+    let checkinId = uuid();
+    let whenCreated = new Date();
+	let data = request.body;
+	data._id = checkinId;
+	data.checkindate = whenCreated;
+	data.document_type = "checkin";
+	db.insert(data, (err, result) => {
+		if (err) {
+			logger.error('Error occurred: ' + err.message, 'create()');
+			console.log(err);
+		} else {
+			console.log('Inserted checkin..');
+			return response.json({ result: { createdId: result.id, createdRevId: result.rev } });
+		}
+    });
 });	
 
 app.get('/api/getUsers', function (request, response) {
