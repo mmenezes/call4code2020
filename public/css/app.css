@@ -155,3 +155,8 @@ video {
   width: 100%;
   height: auto;
 }
+
+@media screen and (max-width: 800px)
+.rcw-widget-container {
+    height: 80vhs;
+}

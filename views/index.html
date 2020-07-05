@@ -9,7 +9,6 @@
         <link rel="stylesheet" href="../font-awesome-4.5.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="../css/jquery.mobile-1.4.5.min.css">
 		<link rel="stylesheet" href="../css/jquery.mobile.flatui.min.css">
-		<link rel="stylesheet" href="../css/app.css">
 		<script src="../lib/jquery-1.11.3.min.js"></script>
 		<script src="../lib/jquery.mobile-1.4.5.min.js"></script>
 		<script src="../js/app.js"></script>
@@ -31,25 +30,40 @@
         <% include privacy.html %>
         <% include checkin.html %>	
 		<% include appointment.html %>	
-		
-		
-		
-		
-		
-		
+
 		<script src="../js/static/js/2.4abb1b6c.chunk.js"></script>
-		<script src="../js/static/js/main.1e6fe354.chunk.js"></script>
+		<script src="../js/static/js/main.43bd6136.chunk.js"></script>
 		<script src="../js/static/js/runtime-main.ed0842fb.js"></script>
 		<link rel="stylesheet" href="../js/static/css/2.81e60bb4.chunk.css">
 		<link rel="stylesheet" href="../js/static/css/main.5ecd60fb.chunk.css">
+		<link rel="stylesheet" href="../css/app.css">
 
 		<script>
+		function sendMessage(m){
+			$('.rcw-new-message').val(m);
+			$('.rcw-send').click();
+		}
 		$( document ).ready(function() {
 			$('#hospitals').on('change', function(){
 			        var selectedHospital = $(this).children("option:selected").val();
 					$('.rcw-launcher').click();
 					$('.rcw-new-message').val('Hello ' + selectedHospital + ' Ashish');
 					$('.rcw-send').click();
+			});
+			$('.rcw-widget-container').on('DOMSubtreeModified', '#messages',function(){
+				
+				let original_content = $('#messages .rcw-message:last').find('.rcw-message-text p').html();
+				if(original_content && original_content.indexOf(';') >=0 ){
+					//$('#messages').find('.rcw-message').last().remove()
+			       let content_messages = original_content.split(";");
+				   let new_content = '<ul>';
+				   content_messages.forEach(function (c) { 
+						if(c!='')
+						new_content = new_content + '<li><a style="cursor:pointer" class="options-list" onclick="sendMessage(\''+c+'\')">'+c+'</a></li>';
+					})
+					new_content = new_content + '</ul>';
+					$('#messages .rcw-message:last').find('.rcw-message-text p').html(new_content)
+				}   
 			});
 		});
 		</script>
