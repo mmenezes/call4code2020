@@ -1,4 +1,4 @@
-<div id="loginpage" data-role="page" data-theme="b">
+<div id="otppage" data-role="page" data-theme="b">
     <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme='a'>
         <div class="app-title-cntr">
 				
@@ -13,19 +13,23 @@
 		<div class="ui-grid-a">
 			<form id="loginform" method="POST">
 			<div class="ui-block-">
-				<input type="number" maxlength="10" name="mobile" id="mobile" placeholder="Mobile No">	
-				
+				<input type="number" maxlength="10" name="mobile" id="mobileotp" placeholder="Mobile No">	
+									<div class="ui-block-" style="text-align:right;"> 
+
+									<a href="#" data-transition="flip" class="">               Generate OTP                                  </a>
+									</div>
+
 			</div>
 		</div>
 		<div>
 			<div class="ui-block-"><input type="password" maxlength="4" name="password" id="password" placeholder="Enter Password"></div>
 		</div>
-					<div class="ui-block-"><input id="login" type="button" value="Login"></div>
+					<div class="ui-block-"><input id="loginotp" type="button" value="Login"></div>
 					<div class="ui-block-" style="text-align:center;"> 
 					<br/>
 					OR
 					<br/><br/>
-					<a href="#otppage" data-transition="flip" class="">               Login using OTP                                  </a>
+					<a href="#loginpage" data-transition="flip" class="">               Login using Password                                  </a>
 					</div>
 					
 					                        
