@@ -4,10 +4,10 @@ $( document ).on( "pageinit", "#checkin", function( event ) {
        $("#checkinform").serialize(), // data to be submit
        function(data, status, xhr) {   // success callback function
 	      if (status=='success'){
-            //$("#popupDialog").popup("open")
-			alert("Checkin Success Stay Safe!!")
+            
+			Util.showToast("Checkin Success Stay Safe!!")
 		  }else 
-        	alert("Error checking In. Please try Again");		  
+        	Util.showToast("Error checking In. Please try Again");		  
           },
 	'json')});
 });
