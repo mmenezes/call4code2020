@@ -5,9 +5,14 @@ $( document ).on( "pageinit", "#appointment", function( event ) {
 			$('.rcw-widget-container').css("height","80vh");
 			$('#hospitals').on('change', function(){
 			        var selectedHospital = $(this).children("option:selected").val();
-					$('.rcw-launcher').click();
+					if(!$('#messages').is(":visible")){
+						$('.rcw-launcher').click();
+					
+					}
+					$('#messages').find('.rcw-message').last().remove();
 					$('.rcw-new-message').val('Hello ' + selectedHospital + ' Ashish');
 					$('.rcw-send').click();
+					$('#messages').find('.rcw-message').last().remove();
 			});
 			$('.rcw-widget-container').on('DOMSubtreeModified', '#messages',function(){
 				
