@@ -1,6 +1,6 @@
 $( document ).on( "pageinit", "#hotspot", function( event ) {
     //attach event handlers here. eg $('li').on('click', function(){});
-    let map;
+    //let map;
 	//if(map) map.remove();
     //   map=new MapmyIndia.Map('map-container',{center:[15.5388,73.8315],zoom:8,zoomControl: true,hybrid:false,search:false });
 });
@@ -27,7 +27,7 @@ $( document ).on( "pageshow", "#hotspot", function( event ) {
     var long = position.coords.longitude;
     var centre = new L.LatLng(lat, long);
 
-    var map=new MapmyIndia.Map("map-container",{ center: centre,zoom:10,hybrid:true });
+    var map=new MapmyIndia.Map("hotspot",{ center: centre,zoom:10,hybrid:true });
  }
 
  function errorFunction(position) 
