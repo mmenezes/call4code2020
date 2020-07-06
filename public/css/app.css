@@ -158,7 +158,7 @@ video {
 
 @media screen and (max-width: 800px)
 .rcw-widget-container {
-    height: 80vhs;
+    height: 80vh !important;
 }
 
 .iframe-container {
