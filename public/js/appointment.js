@@ -2,7 +2,7 @@ $( document ).on( "pageinit", "#appointment", function( event ) {
     //attach event handlers here. eg $('li').on('click', function(){});
 
 		$( document ).ready(function() {
-			$('.rcw-widget-container').css("height","80vh");
+			$('.rcw-widget-container').css("height","75vh");
 			$('#hospitals').on('change', function(){
 			        var selectedHospital = $(this).children("option:selected").val();
 					if(!$('#messages').is(":visible")){
