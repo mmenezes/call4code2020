@@ -12,7 +12,8 @@
 		<h2>Your Checkins</h2>
 		<div data-role="collapsible">
 			<h3>Malls</h3>
-			<p><div data-role="panel" id="mall-map"></div></p>
+			<div data-role="main" id="mall-map"></div>
+
 		</div>
 		<div data-role="collapsible">
 		    
@@ -27,6 +28,13 @@
 			
 		</div>
 	</div>
+	<style>
+	#contacttracing 	.leaflet-pane, .leaflet-tile, .leaflet-marker-icon, .leaflet-marker-shadow, .leaflet-tile-container, .leaflet-pane > svg, .leaflet-pane > canvas, .leaflet-zoom-box, .leaflet-image-layer, .leaflet-layer {
+	    position: relative;
+	    left: 0;
+	    top: 0;
+	}
+	</style>
 	<div data-role="footer">
         <p class="copyright" property="dc:rights">&copy;
           <span property="dc:dateCopyrighted">NeW nOrMaL 2020</span>
